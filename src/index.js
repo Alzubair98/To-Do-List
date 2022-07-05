@@ -1,15 +1,52 @@
-import _ from 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const arrowButtons = document.querySelector('.arrows');
 
-  // _ is function in the lodash package
+arrowButtons.addEventListener('click', () => {
+  arrowButtons.classList.toggle('active');
+});
 
-  element.innerHTML = _.join(['hello', 'webpack', 'its me'], ' ');
-  element.classList.add('hello');
+const List = [
+  {
+    description: 'go to gym',
+    completed: true,
+    index: 0,
+  },
 
-  return element;
-}
+  {
+    description: 'shopping',
+    completed: true,
+    index: 1,
+  },
 
-document.body.appendChild(component());
+  {
+    description: 'have a good night seelp',
+    completed: true,
+    index: 2,
+  },
+];
+
+window.addEventListener('load', () => {
+  const ListSection = document.querySelector('.list-elements');
+
+  const createElement = (element) => {
+    const elementDiv = document.createElement('div');
+    const checkBox = document.createElement('input');
+    const task = document.createElement('p');
+    const hr = document.createElement('hr');
+
+    elementDiv.classList.add('the-elements');
+
+    checkBox.type = 'checkbox';
+    checkBox.checked = element.completed;
+
+    task.innerHTML = element.description;
+
+    elementDiv.append(checkBox, task);
+    ListSection.append(hr, elementDiv);
+  };
+
+  List.forEach((element) => {
+    createElement(element);
+  });
+});

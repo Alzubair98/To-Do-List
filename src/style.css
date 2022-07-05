@@ -1,7 +1,60 @@
 body {
   background-color: bisque;
+  padding: 0%;
 }
 
-.hello {
-  color: green;
+.menu-section {
+  width: 60%;
+  height: auto;
+  margin: 10% 0 0 20%;
+}
+
+.first-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrows {
+  margin: 2%;
+  height: 18px;
+  transition: all 0.2s;
+}
+
+.arrows.active {
+  transform: rotate(180deg);
+}
+
+/* add - bar */
+.the-input-bar {
+  display: flex;
+  background-color: white;
+}
+
+.input-bar {
+  font-style: italic;
+  margin: 0%;
+  width: 99%;
+  height: auto;
+  border-style: none;
+}
+
+
+/* the elements */
+.the-elements {
+  display: flex;
+  flex-direction: row;
+}
+
+
+/* delete button */
+
+.delete-button {
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: aliceblue;
 }
