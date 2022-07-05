@@ -21,7 +21,7 @@ const List = [
 
   {
     description: 'have a good night seelp',
-    completed: true,
+    completed: false,
     index: 2,
   },
 ];
