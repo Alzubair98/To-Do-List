@@ -1,6 +1,8 @@
 body {
+  outline: none;
   background-color: bisque;
   padding: 0%;
+  margin: 0%;
 }
 
 .menu-section {
@@ -48,16 +50,26 @@ body {
   font-size: 2rem;
   height: 2rem;
   margin: 0.9rem;
+  cursor: pointer;
 }
 
 /* the elements */
-.the-elements {
-  display: flex;
-  flex-direction: row;
-  padding: 1rem;
-  border-width: 1px;
-  border-style: solid none none;
 
+.the-elements {
+  margin: 0;
+  padding: 0;
+  padding-top: 1rem;
+}
+
+.task{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  border-width: 1px;
+  margin-bottom: 0.5rem;
+  padding: 1rem 0.5rem;
+  
+  border-style: solid none none;
 }
 
 /* delete button */

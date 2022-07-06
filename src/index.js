@@ -1,87 +1,56 @@
 import './style.css';
+import { 
+    addelement, addList, localStorageGet, deleteElement, editList,
+  } from './remove&add.js';
 
 const arrowButtons = document.querySelector('.arrows');
 
 arrowButtons.addEventListener('click', () => {
   arrowButtons.classList.toggle('active');
 });
+//////////////////////////////////////////////////////
 
-const List = [
-  {
-    description: "me",
-    completed: true,
-    index:  1,
-  },
-  
-];
+const addbutton = document.querySelector(".add-button");
+const theInput = document.querySelector(".input-bar");
+const ListContinar = document.querySelector(".the-elements");
 
-window.addEventListener('load', () => {
-  const ListSection = document.querySelector('.list-elements');
+localStorageGet();
 
-  const createElement = (element) => {
-    const elementDiv = document.createElement('div');
-    const checkBox = document.createElement('input');
-    const task = document.createElement('p');
-  
 
-    elementDiv.classList.add('the-elements');
 
-    checkBox.type = 'checkbox';
-    checkBox.checked = element.completed;
+addbutton.addEventListener('click', () =>{
+    if(theInput.value !== ""){
+        addelement(theInput.value);
+        theInput.value = '';
+    }
+});
 
-    task.innerHTML = element.description;
+theInput.addEventListener('keydown', (event) =>{
+    if(event.key === "Enter"){
+        addbutton.click();
+    }
+} );
 
-    elementDiv.append(checkBox, task);
-    ListSection.appendChild(elementDiv);
-  };
+// deleting from the list 
 
-  List.forEach((element) => {
-    createElement(element);
-  });
-  
+ListContinar.addEventListener('click', (event) => {
+    if(event.target.classList.contains('fa-trash-can')){
+        event.target.parentElement.remove();
+        deleteElement(event.target.parentElement.getAttribute('task-id'))
+    }
 });
 
 
-//add function
-
-const InputBar = document.querySelector(".input-bar");
-const addButton = document.querySelector(".add-button");
-
-
-let addElement = (inputTask) =>{
-  List.push ({
-    description: inputTask,
-    completed: false,
-    index: List.length,
-  });
-  // localStorage.setItem('List', JSON.stringify(List));
-  
-}
-
-InputBar.addEventListener("keydown" , (e) => {
-  const value = InputBar.value;
-  if(e.key === "Enter"){
-    addElement(value);
-  }
-})
-
-addButton.addEventListener("click", ()=>{
-  const value = InputBar.value;
-  addElement(value);
-})
-
-
-//delete function 
-
-const deleteButton = document.querySelector(".delete-button");
-
-deleteButton.addEventListener("click", (event) => {
-    List.forEach((element, index) =>{
-      if (element.completed === true){
-        element.completed.parentElement.remove();
-        List.splice(index,1);
-        console.log(List);
-        
-      }
-    })
+ListContinar.addEventListener('click', (event) => {
+    if(event.target.classList.contains('edit')){
+        event.target.addEventListener('blur', (e) => {
+        if(event.target.value === ''){
+            deleteElement(e.target.parentElement.parentElement.getAttribute('task-id'));
+            e.target.parentElement.remove();
+        }
+        else{
+            editList(e.target.parentElement.parentElement.getAttribute('task-id'), e.target.value);
+        }
+        } )
+    }
 })
