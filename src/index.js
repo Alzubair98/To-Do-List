@@ -8,22 +8,10 @@ arrowButtons.addEventListener('click', () => {
 
 const List = [
   {
-    description: 'go to gym',
-    completed: true,
-    index: 0,
-  },
-
-  {
-    description: 'shopping',
-    completed: true,
-    index: 1,
-  },
-
-  {
-    description: 'have a good night seelp',
+    description: "me",
     completed: false,
-    index: 2,
-  },
+    index:  1,
+  }
 ];
 
 window.addEventListener('load', () => {
@@ -46,7 +34,39 @@ window.addEventListener('load', () => {
     ListSection.append(hr, elementDiv);
   };
 
+
   List.forEach((element) => {
     createElement(element);
   });
+  
 });
+
+
+
+//add function
+
+const InputBar = document.querySelector(".input-bar");
+const addButton = document.querySelector(".add-button");
+
+
+let addElement = (inputTask) =>{
+  List.push ({
+    description: inputTask,
+    completed: false,
+    index:  List.length,
+  });
+}
+
+InputBar.addEventListener("keydown" , (e) => {
+  const value = InputBar.value;
+  if(e.key === "Enter"){
+    addElement(value);
+  }
+})
+
+addButton.addEventListener("click", ()=>{
+  const value = InputBar.value;
+  addElement(value);
+})
+
+

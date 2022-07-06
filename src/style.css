@@ -32,7 +32,8 @@ body {
 .the-input-bar {
   display: flex;
   background-color: white;
-  padding: 1rem;
+  padding: 0 1rem 0 1rem;
+  height: 4rem;
 }
 
 .input-bar {
@@ -41,6 +42,12 @@ body {
   width: 99%;
   height: auto;
   border-style: none;
+}
+
+.add-button{
+  font-size: 2rem;
+  height: 2rem;
+  margin: 0.9rem;
 }
 
 /* the elements */
