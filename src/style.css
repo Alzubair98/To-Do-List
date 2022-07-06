@@ -55,6 +55,9 @@ body {
   display: flex;
   flex-direction: row;
   padding: 1rem;
+  border-width: 1px;
+  border-style: solid none none;
+
 }
 
 /* delete button */

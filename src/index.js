@@ -9,9 +9,10 @@ arrowButtons.addEventListener('click', () => {
 const List = [
   {
     description: "me",
-    completed: false,
+    completed: true,
     index:  1,
-  }
+  },
+  
 ];
 
 window.addEventListener('load', () => {
@@ -21,7 +22,7 @@ window.addEventListener('load', () => {
     const elementDiv = document.createElement('div');
     const checkBox = document.createElement('input');
     const task = document.createElement('p');
-    const hr = document.createElement('hr');
+  
 
     elementDiv.classList.add('the-elements');
 
@@ -31,16 +32,14 @@ window.addEventListener('load', () => {
     task.innerHTML = element.description;
 
     elementDiv.append(checkBox, task);
-    ListSection.append(hr, elementDiv);
+    ListSection.appendChild(elementDiv);
   };
-
 
   List.forEach((element) => {
     createElement(element);
   });
   
 });
-
 
 
 //add function
@@ -53,8 +52,10 @@ let addElement = (inputTask) =>{
   List.push ({
     description: inputTask,
     completed: false,
-    index:  List.length,
+    index: List.length,
   });
+  // localStorage.setItem('List', JSON.stringify(List));
+  
 }
 
 InputBar.addEventListener("keydown" , (e) => {
@@ -70,3 +71,17 @@ addButton.addEventListener("click", ()=>{
 })
 
 
+//delete function 
+
+const deleteButton = document.querySelector(".delete-button");
+
+deleteButton.addEventListener("click", (event) => {
+    List.forEach((element, index) =>{
+      if (element.completed === true){
+        element.completed.parentElement.remove();
+        List.splice(index,1);
+        console.log(List);
+        
+      }
+    })
+})
