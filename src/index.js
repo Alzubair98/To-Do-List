@@ -59,7 +59,7 @@ ListSection.addEventListener('keydown', (event) => {
 ListSection.addEventListener('click', (e) => {
   if (e.target.classList.contains('the-checkbox')){
     let checkBox = e.target;
-    let number = parseInt(e.target.parentElement.getAttribute('div_id'), 10);
-    console.log(number, checkBox.checked);
-    editCheckBox(number,checkBox.checked);}
+    let ID = parseInt(e.target.parentElement.getAttribute('div_id'), 10);
+    console.log(ID, checkBox.checked);
+    editCheckBox(ID,checkBox.checked);}
 })
