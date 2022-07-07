@@ -48,9 +48,22 @@ body {
   display: flex;
   flex-direction: row;
   padding: 1rem;
+  /* justify-content: space-between; */
+  border-style: solid none none;
+  border-width: 1px;
+  position: relative;
 }
 
 /* delete button */
+
+.delete-icon{
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  left: 94%;
+  top: 40%;
+}
 
 .delete-button {
   border-style: solid none;

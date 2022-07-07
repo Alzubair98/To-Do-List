@@ -1,17 +1,14 @@
 # Project Name
 
-to do list
-
-# Description
-
-the second project in the second week of the second module.
-a simple but useful to do list
+set up the webpack
 
 ## Built With
 
 - Major languages
 - Frameworks
 - Technologies used
+
+To get a local copy up and running follow these simple example steps.
 
 ## Authors
 

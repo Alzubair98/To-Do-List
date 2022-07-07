@@ -33,7 +33,10 @@ window.addEventListener('load', () => {
     const elementDiv = document.createElement('div');
     const checkBox = document.createElement('input');
     const task = document.createElement('p');
-    const hr = document.createElement('hr');
+    const deleteButton = document.createElement('button')
+
+    deleteButton.classList.add("delete-icon")
+    deleteButton.innerHTML = "X"
 
     elementDiv.classList.add('the-elements');
 
@@ -42,8 +45,8 @@ window.addEventListener('load', () => {
 
     task.innerHTML = element.description;
 
-    elementDiv.append(checkBox, task);
-    ListSection.append(hr, elementDiv);
+    elementDiv.append(checkBox, task, deleteButton);
+    ListSection.append(elementDiv);
   };
 
   List.forEach((element) => {
