@@ -56,10 +56,10 @@ ListSection.addEventListener('keydown', (event) => {
   }
 });
 
-ListSection.addEventListener('click', (event) => {
-  if (event.target.classList.contains('the-checkbox'));
-    const checkBox = event.target;
-    const iD = parseInt(event.target.parentElement.getAttribute('div_id'), 10);
-    console.log(iD, checkBox.checked)
-    editCheckBox(iD,checkBox.checked);
+ListSection.addEventListener('click', (e) => {
+  if (e.target.classList.contains('the-checkbox')){
+    let checkBox = e.target;
+    let number = parseInt(e.target.parentElement.getAttribute('div_id'), 10);
+    console.log(number, checkBox.checked);
+    editCheckBox(number,checkBox.checked);}
 })
