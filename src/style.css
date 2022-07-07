@@ -44,7 +44,7 @@ body {
   border-style: none;
 }
 
-.add-button{
+.add-button {
   font-size: 2rem;
   height: 2rem;
   margin: 0.9rem;
@@ -56,20 +56,21 @@ body {
   display: flex;
   flex-direction: row;
   padding: 1rem;
+
   /* justify-content: space-between; */
   border-style: solid none none;
   border-width: 1px;
   position: relative;
 }
 
-.task-layout{
+.task-layout {
   border: none;
   font-size: 1.2rem;
 }
 
 /* delete button */
 
-.delete-icon{
+.delete-icon {
   border: none;
   background-color: white;
   cursor: pointer;
