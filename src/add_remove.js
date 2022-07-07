@@ -65,7 +65,11 @@ const addElement = (value) => {
 const deleteElement = (ID) => {
   const theList = JSON.parse(localStorage.getItem('List'));
   theList.splice(ID - 1, 1);
+  theList.forEach((element, index) => {
+    element.index = index + 1;
+  });
   localStorageTasks(theList);
+
   return theList;
 };
 

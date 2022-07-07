@@ -46,3 +46,11 @@ ListSection.addEventListener('click', (event) => {
     editElement(iD, value);
   }
 });
+
+ListSection.addEventListener('keydown', (event) => {
+  if (event.target.classList.contains('task-layout')) {
+    const iD = parseInt(event.target.parentElement.getAttribute('div_id'), 10);
+    const { value } = event.target;
+    editElement(iD, value);
+  }
+})
