@@ -1,4 +1,5 @@
 import './style.css';
+import { localStorageGet, addElement, deleteElement } from './add_remove';
 
 const arrowButtons = document.querySelector('.arrows');
 
@@ -6,50 +7,36 @@ arrowButtons.addEventListener('click', () => {
   arrowButtons.classList.toggle('active');
 });
 
-const List = [
-  {
-    description: 'go to gym',
-    completed: true,
-    index: 0,
-  },
+const addbutton = document.querySelector(".add-button");
+const theInput = document.querySelector(".input-bar");
+const ListSection = document.querySelector('.list-elements');
 
-  {
-    description: 'shopping',
-    completed: true,
-    index: 1,
-  },
 
-  {
-    description: 'have a good night seelp',
-    completed: false,
-    index: 2,
-  },
-];
+localStorageGet();
 
-window.addEventListener('load', () => {
-  const ListSection = document.querySelector('.list-elements');
+// adding to list
+addbutton.addEventListener('click', ()=>{
+  if(theInput.value !== ""){
+    addElement(theInput.value);
+    theInput.value = '';
+  }
+});
 
-  const createElement = (element) => {
-    const elementDiv = document.createElement('div');
-    const checkBox = document.createElement('input');
-    const task = document.createElement('p');
-    const deleteButton = document.createElement('button')
+theInput.addEventListener('keydown', (evnet)=>{
+  if(evnet.key === "Enter"){
+    addbutton.click();
+  }
+} )
 
-    deleteButton.classList.add("delete-icon")
-    deleteButton.innerHTML = "X"
+// delete from the list
 
-    elementDiv.classList.add('the-elements');
-
-    checkBox.type = 'checkbox';
-    checkBox.checked = element.completed;
-
-    task.innerHTML = element.description;
-
-    elementDiv.append(checkBox, task, deleteButton);
-    ListSection.append(elementDiv);
-  };
-
-  List.forEach((element) => {
-    createElement(element);
-  });
+ListSection.addEventListener('click', (event) => {
+  if(event.target.classList.contains('delete-icon')){
+    event.target.parentElement.remove();
+    
+    const ID = parseInt(event.target.parentElement.getAttribute('div_id'));
+    console.log(ID)
+    deleteElement(ID);
+    
+  }
 });
