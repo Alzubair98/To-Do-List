@@ -1,14 +1,15 @@
 # Project Name
 
-set up the webpack
+The To Do List
+
+# description
+
+this is a simple and powerfull project for to do list
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-To get a local copy up and running follow these simple example steps.
+- Html & css & javaScript
+- webpack
 
 ## Authors
 
