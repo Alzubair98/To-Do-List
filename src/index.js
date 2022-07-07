@@ -53,4 +53,4 @@ ListSection.addEventListener('keydown', (event) => {
     const { value } = event.target;
     editElement(iD, value);
   }
-})
+});
