@@ -1,4 +1,7 @@
 import './style.css';
+import {
+  localStorageGet, addElement, deleteElement, editElement,
+} from './add_remove.js';
 
 const arrowButtons = document.querySelector('.arrows');
 
@@ -6,47 +9,48 @@ arrowButtons.addEventListener('click', () => {
   arrowButtons.classList.toggle('active');
 });
 
-const List = [
-  {
-    description: 'go to gym',
-    completed: true,
-    index: 0,
-  },
+const addbutton = document.querySelector('.add-button');
+const theInput = document.querySelector('.input-bar');
+const ListSection = document.querySelector('.list-elements');
 
-  {
-    description: 'shopping',
-    completed: true,
-    index: 1,
-  },
+localStorageGet();
 
-  {
-    description: 'have a good night seelp',
-    completed: false,
-    index: 2,
-  },
-];
+// adding to list
+addbutton.addEventListener('click', () => {
+  if (theInput.value !== '') {
+    addElement(theInput.value);
+    theInput.value = '';
+  }
+});
 
-window.addEventListener('load', () => {
-  const ListSection = document.querySelector('.list-elements');
+theInput.addEventListener('keydown', (evnet) => {
+  if (evnet.key === 'Enter') {
+    addbutton.click();
+  }
+});
 
-  const createElement = (element) => {
-    const elementDiv = document.createElement('div');
-    const checkBox = document.createElement('input');
-    const task = document.createElement('p');
-    const hr = document.createElement('hr');
+// delete from the list
 
-    elementDiv.classList.add('the-elements');
+ListSection.addEventListener('click', (event) => {
+  if (event.target.classList.contains('delete-icon')) {
+    event.target.parentElement.remove();
+    const iD = parseInt(event.target.parentElement.getAttribute('div_id'), 10);
+    deleteElement(iD);
+  }
+});
 
-    checkBox.type = 'checkbox';
-    checkBox.checked = element.completed;
+ListSection.addEventListener('click', (event) => {
+  if (event.target.classList.contains('task-layout')) {
+    const iD = parseInt(event.target.parentElement.getAttribute('div_id'), 10);
+    const { value } = event.target;
+    editElement(iD, value);
+  }
+});
 
-    task.innerHTML = element.description;
-
-    elementDiv.append(checkBox, task);
-    ListSection.append(hr, elementDiv);
-  };
-
-  List.forEach((element) => {
-    createElement(element);
-  });
+ListSection.addEventListener('keydown', (event) => {
+  if (event.target.classList.contains('task-layout')) {
+    const iD = parseInt(event.target.parentElement.getAttribute('div_id'), 10);
+    const { value } = event.target;
+    editElement(iD, value);
+  }
 });

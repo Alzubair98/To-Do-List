@@ -1,17 +1,15 @@
 # Project Name
 
-to do list
+The To Do List
 
-# Description
+# description
 
-the second project in the second week of the second module.
-a simple but useful to do list
+this is a simple and powerfull project for to do list
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Html & css & javaScript
+- webpack
 
 ## Authors
 
