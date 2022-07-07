@@ -2,6 +2,7 @@ import './style.css';
 import {
   localStorageGet, addElement, deleteElement, editElement,
 } from './add_remove.js';
+import {editCheckBox,} from './completed.js'
 
 const arrowButtons = document.querySelector('.arrows');
 
@@ -54,3 +55,11 @@ ListSection.addEventListener('keydown', (event) => {
     editElement(iD, value);
   }
 });
+
+ListSection.addEventListener('click', (event) => {
+  if (event.target.classList.contains('the-checkbox'));
+    const checkBox = event.target;
+    const iD = parseInt(event.target.parentElement.getAttribute('div_id'), 10);
+    console.log(iD, checkBox.checked)
+    editCheckBox(iD,checkBox.checked);
+})
