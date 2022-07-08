@@ -1,7 +1,6 @@
 # Project Name
 
-this is a project in the second week of the second module in microverse. its a useful to do list that save tasks for you
-
+The To-Do-List app
 
 # description
 
