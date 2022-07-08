@@ -2,6 +2,7 @@ import './style.css';
 import {
   localStorageGet, addElement, deleteElement, editElement,
 } from './add_remove.js';
+import { editCheckBox, deleteCompleted } from './completed.js';
 
 const arrowButtons = document.querySelector('.arrows');
 
@@ -39,6 +40,8 @@ ListSection.addEventListener('click', (event) => {
   }
 });
 
+// edit the element in list
+
 ListSection.addEventListener('click', (event) => {
   if (event.target.classList.contains('task-layout')) {
     const iD = parseInt(event.target.parentElement.getAttribute('div_id'), 10);
@@ -53,4 +56,20 @@ ListSection.addEventListener('keydown', (event) => {
     const { value } = event.target;
     editElement(iD, value);
   }
+});
+
+ListSection.addEventListener('click', (e) => {
+  if (e.target.classList.contains('the-checkbox')) {
+    const checkBox = e.target;
+    const ID = parseInt(e.target.parentElement.getAttribute('div_id'), 10);
+    editCheckBox(ID, checkBox.checked);
+  }
+});
+
+// delete All completed tasks
+
+const deleteAllButton = document.querySelector('.delete-button');
+
+deleteAllButton.addEventListener('click', () => {
+  deleteCompleted();
 });
