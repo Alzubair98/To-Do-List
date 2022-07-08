@@ -13,7 +13,7 @@ this is a simple and powerfull project for to do list
 
 ## Live Demo (if available)
 
-[Live Demo Link](http://localhost:8080/)
+[Live Demo Link](https://alzubair98.github.io/To-Do-List/)
 
 ## Authors
 
