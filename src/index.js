@@ -2,7 +2,7 @@ import './style.css';
 import {
   localStorageGet, addElement, deleteElement, editElement,
 } from './add_remove.js';
-import {editCheckBox,deleteCompleted} from './completed.js'
+import { editCheckBox, deleteCompleted } from './completed.js';
 
 const arrowButtons = document.querySelector('.arrows');
 
@@ -59,17 +59,17 @@ ListSection.addEventListener('keydown', (event) => {
 });
 
 ListSection.addEventListener('click', (e) => {
-  if (e.target.classList.contains('the-checkbox')){
-    let checkBox = e.target;
-    let ID = parseInt(e.target.parentElement.getAttribute('div_id'), 10);
-    editCheckBox(ID,checkBox.checked);}
-})
-
+  if (e.target.classList.contains('the-checkbox')) {
+    const checkBox = e.target;
+    const ID = parseInt(e.target.parentElement.getAttribute('div_id'), 10);
+    editCheckBox(ID, checkBox.checked);
+  }
+});
 
 // delete All completed tasks
 
-const deleteAllButton = document.querySelector(".delete-button");
+const deleteAllButton = document.querySelector('.delete-button');
 
-deleteAllButton.addEventListener('click', ()=> {
+deleteAllButton.addEventListener('click', () => {
   deleteCompleted();
-})
+});
