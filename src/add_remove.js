@@ -14,6 +14,7 @@ const createElement = (element) => {
   elementDiv.classList.add('the-elements');
 
   checkBox.type = 'checkbox';
+  checkBox.classList.add('the-checkbox');
   checkBox.checked = element.complete;
 
   task.value = element.description;
@@ -87,5 +88,5 @@ const editElement = (ID, value) => {
 };
 
 export {
-  localStorageGet, addElement, deleteElement, editElement,
+  localStorageGet, addElement, deleteElement, editElement, localStorageTasks, addList,
 };
