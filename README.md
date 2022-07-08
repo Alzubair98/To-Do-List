@@ -1,10 +1,10 @@
 # Project Name
 
-The To Do List
+The To-Do-List app
 
 # description
 
-this is a simple and powerfull project for to do list
+this is a project in the second week of the second module in microverse. its a useful to do list that save tasks for you
 
 ## Built With
 
@@ -13,7 +13,7 @@ this is a simple and powerfull project for to do list
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://alzubair98.github.io/To-Do-List/)
+[Live Demo Link](https://alzubair98.github.io/To-Do-List/dist/)
 
 ## Authors
 
