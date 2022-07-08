@@ -4,7 +4,7 @@ The To Do List
 
 # description
 
-this is a simple and powerfull project for to do list
+this is a project in the second week of the second module in microverse. its a useful to do list that save tasks for you
 
 ## Built With
 
