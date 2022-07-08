@@ -88,5 +88,5 @@ const editElement = (ID, value) => {
 };
 
 export {
-  localStorageGet, addElement, deleteElement, editElement, localStorageTasks
+  localStorageGet, addElement, deleteElement, editElement, localStorageTasks, addList
 };
