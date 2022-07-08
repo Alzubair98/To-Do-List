@@ -13,7 +13,7 @@ this is a project in the second week of the second module in microverse. its a u
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://alzubair98.github.io/To-Do-List/)
+[Live Demo Link](https://alzubair98.github.io/To-Do-List/dist/)
 
 ## Authors
 
