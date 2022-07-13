@@ -12,7 +12,7 @@ arrowButtons.addEventListener('click', () => {
 
 const addbutton = document.querySelector('.add-button');
 const theInput = document.querySelector('.input-bar');
-const ListSection = document.querySelector('.list-elements');
+const ListSection = document.querySelector('.list-of-elements');
 
 localStorageGet();
 

@@ -1,9 +1,9 @@
 const List = JSON.parse(localStorage.getItem('List')) || [];
 
-const ListSection = document.querySelector('.list-elements');
+const ListSection = document.querySelector('.list-of-elements');
 
 const createElement = (element) => {
-  const elementDiv = document.createElement('div');
+  const elementDiv = document.createElement('li');
   const checkBox = document.createElement('input');
   const task = document.createElement('input');
   const deleteButton = document.createElement('button');
@@ -23,7 +23,7 @@ const createElement = (element) => {
 
   elementDiv.setAttribute('div_id', element.index);
   elementDiv.append(checkBox, task, deleteButton);
-
+  
   ListSection.appendChild(elementDiv);
 };
 

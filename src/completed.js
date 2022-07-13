@@ -15,14 +15,14 @@ const editCheckBox = (ID, event) => {
 
 const deleteCompleted = () => {
   List = List.filter((element) => element.completed === false);
-  const ListSection = document.querySelector('.list-elements');
+  const ListSection = document.querySelector('.list-of-elements');
 
   List.forEach((element, index) => {
     element.index = index + 1;
   });
   localStorageTasks(List);
-
   ListSection.innerHTML = '';
+
   addList(List);
 };
 

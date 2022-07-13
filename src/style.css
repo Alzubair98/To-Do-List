@@ -52,12 +52,14 @@ body {
 }
 
 /* the elements */
+ul{
+  margin: 0;
+  padding: 0;
+}
 .the-elements {
   display: flex;
   flex-direction: row;
   padding: 1rem;
-
-  /* justify-content: space-between; */
   border-style: solid none none;
   border-width: 1px;
   position: relative;
