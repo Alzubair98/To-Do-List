@@ -1,6 +1,6 @@
 import './style.css';
 import {
-  localStorageGet, addElement, deleteElement, editElement,
+  localStorageGet, addElement, deleteElement, editElement,deletetask
 } from './add_remove.js';
 import { editCheckBox, deleteCompleted } from './completed.js';
 
@@ -34,7 +34,8 @@ theInput.addEventListener('keydown', (evnet) => {
 
 ListSection.addEventListener('click', (event) => {
   if (event.target.classList.contains('delete-icon')) {
-    event.target.parentElement.remove();
+    let item = event.target;
+    deletetask(item);
     const iD = parseInt(event.target.parentElement.getAttribute('div_id'), 10);
     deleteElement(iD);
   }
