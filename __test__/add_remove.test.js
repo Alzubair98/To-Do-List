@@ -6,7 +6,10 @@ describe('Add, Remove Element Test', ()=>{
     const task = [{ description: value, completed: false, index: List.length + 1}];
 
     test('check one item in the list', ()=>{
-       
+      addElement(task);
+        const list = document.querySelectorAll('.list-elements div'); 
+
+        expect(list).toHaveLength(1);  
     });
         
 });
