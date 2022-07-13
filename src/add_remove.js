@@ -1,7 +1,4 @@
-
 const List = JSON.parse(localStorage.getItem('List')) || [];
-
-const ListSection = document.querySelector('.list-elements');
 
 const createElement = (element) => {
   const ListSection = document.querySelector('.list-elements');
@@ -63,7 +60,6 @@ const addElement = (value) => {
   createElement(task);
 };
 
-
 // delete element
 
 const deleteElement = (ID) => {
@@ -77,9 +73,9 @@ const deleteElement = (ID) => {
   return theList;
 };
 
-const deletetask = (item)=>{
+const deletetask = (item) => {
   item.parentElement.remove();
-}
+};
 
 // edit elements
 
@@ -95,5 +91,5 @@ const editElement = (ID, value) => {
 };
 
 export {
-  localStorageGet, addElement, deleteElement, editElement, localStorageTasks, addList, deletetask
+  localStorageGet, addElement, deleteElement, editElement, localStorageTasks, addList, deletetask,
 };
