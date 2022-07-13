@@ -1,3 +1,4 @@
+
 const List = JSON.parse(localStorage.getItem('List')) || [];
 
 const ListSection = document.querySelector('.list-elements');
@@ -22,8 +23,8 @@ const createElement = (element) => {
   task.classList.add('task-layout');
 
   elementDiv.setAttribute('div_id', element.index);
-  elementDiv.append(checkBox, task, deleteButton);
 
+  elementDiv.append(checkBox, task, deleteButton);
   ListSection.appendChild(elementDiv);
 };
 

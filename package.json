@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Alzubair98/setting-the-webpack#readme",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.18.6",
+    "@testing-library/jest-dom": "^5.16.4",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
@@ -28,6 +29,7 @@
     "eslint-plugin-import": "^2.26.0",
     "hint": "^7.0.1",
     "html-webpack-plugin": "^5.5.0",
+    "jest-localstorage-mock": "^2.4.21",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
@@ -36,6 +38,13 @@
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3"
+  },
+  "jest": {
+    "resetMocks": false,
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ],
+    "testEnvironment": "jsdom"
   },
   "dependencies": {
     "jest": "^28.1.3",
