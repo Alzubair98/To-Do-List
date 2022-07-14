@@ -24,6 +24,8 @@ const deleteCompleted = () => {
 
   ListSection.innerHTML = '';
   renderList(List);
+
+  return List;
 };
 
 export {

@@ -1,4 +1,5 @@
-import { addElement, deletetask, deleteElement } from '../src/add_remove.js';
+import { addElement, deletetask, deleteElement,localStorageTasks, renderList ,editElement} from '../src/add_remove.js';
+import { editCheckBox, deleteCompleted} from '../src/completed.js'
 
 describe('Add, Remove Element Test', () => {
   // mock the html
@@ -35,4 +36,42 @@ describe('Add, Remove Element Test', () => {
     deleteElement(1);
     expect(JSON.parse(localStorage.getItem('List'))).toHaveLength(2);
   });
+
+
+  // Part 2 
+  // check for updating an item 'completed'status
+  test('check the edit check box', ()=>{
+    const event = false;
+    const id = 1;
+    editCheckBox(id, event);
+    expect(JSON.parse(localStorage.getItem('List'))[0].completed).toBeFalsy;
+    //another test
+    const secondEvent = true;
+    editCheckBox(id, secondEvent);
+    expect(JSON.parse(localStorage.getItem('List'))[0].completed).toBeTruthy;
+  });
+    // test the clear all funtion
+  
+   //test the edit task function
+   test('check the function for editing the task description', () => {
+    const task = [{ description: 'text', completed: true, index: 1 }]
+    localStorage.setItem('List', JSON.stringify(task)); 
+    const value = "not text";
+    const id = 1 ;
+    editElement(id, value);
+    expect(JSON.parse(localStorage.getItem('List'))[0].description).toBe('not text');
+
+    // another test
+    const secondValue = "say my name";
+    editElement(id , secondValue);
+    expect(JSON.parse(localStorage.getItem('List'))[0].description).toBe('say my name');
+   });
+
+
+
+
+
+
+
+
 });
