@@ -19,17 +19,17 @@ describe('Add, Remove Element Test', () => {
     expect(list).toHaveLength(0);
   });
 
-  test('check the remove from the localStorage', () =>{
+  test('check the remove from the localStorage', () => {
     deleteElement(1);
     expect(JSON.parse(localStorage.getItem('List'))).toHaveLength(0);
-  })
+  });
 
-  test('check the remove from the localStorage', () =>{
+  test('check the remove from the localStorage', () => {
     const tasks = [{ description: 'text', completed: false, index: 1 },
-    { description: 'two', completed: false, index: 2 },
-    { description: 'three', completed: false, index: 3 }];
-    localStorage.setItem('List', JSON.stringify(tasks))
+      { description: 'two', completed: false, index: 2 },
+      { description: 'three', completed: false, index: 3 }];
+    localStorage.setItem('List', JSON.stringify(tasks));
     deleteElement(1);
     expect(JSON.parse(localStorage.getItem('List'))).toHaveLength(2);
-  })
+  });
 });
