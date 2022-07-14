@@ -1,5 +1,5 @@
 import {
-  localStorageTasks, addList,
+  localStorageTasks, renderList,
 } from './add_remove.js';
 
 let List = JSON.parse(localStorage.getItem('List')) || [];
@@ -23,7 +23,7 @@ const deleteCompleted = () => {
   localStorageTasks(List);
 
   ListSection.innerHTML = '';
-  addList(List);
+  renderList(List);
 };
 
 export {

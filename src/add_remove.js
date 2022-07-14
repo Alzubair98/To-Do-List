@@ -26,7 +26,7 @@ const createElement = (element) => {
   ListSection.appendChild(elementDiv);
 };
 
-const addList = (List) => {
+const renderList = (List) => {
   List.forEach((element) => {
     createElement(element);
   });
@@ -40,7 +40,7 @@ const localStorageGet = () => {
   const theList = window.localStorage.getItem('List');
 
   if (theList !== null) {
-    addList(JSON.parse(theList));
+    renderList(JSON.parse(theList));
   }
 
   return theList;
@@ -91,5 +91,5 @@ const editElement = (ID, value) => {
 };
 
 export {
-  localStorageGet, addElement, deleteElement, editElement, localStorageTasks, addList, deletetask,
+  localStorageGet, addElement, deleteElement, editElement, localStorageTasks, renderList , deletetask,
 };
