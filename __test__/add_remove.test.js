@@ -1,5 +1,7 @@
-import { addElement, deletetask, deleteElement,localStorageTasks, renderList ,editElement} from '../src/add_remove.js';
-import { editCheckBox, deleteCompleted} from '../src/completed.js'
+import {
+  addElement, deletetask, deleteElement, editElement,
+} from '../src/add_remove.js';
+import { editCheckBox, deleteCompleted } from '../src/completed.js';
 
 describe('Add, Remove Element Test', () => {
   // mock the html
@@ -37,52 +39,51 @@ describe('Add, Remove Element Test', () => {
     expect(JSON.parse(localStorage.getItem('List'))).toHaveLength(2);
   });
 
-
-  // Part 2 
+  // Part 2
   // check for updating an item 'completed'status
-  test('check the edit check box', ()=>{
+  test('check the edit check box', () => {
     const event = false;
     const id = 1;
     editCheckBox(id, event);
-    expect(JSON.parse(localStorage.getItem('List'))[0].completed).toBeFalsy;
-    //another test
+    expect(JSON.parse(localStorage.getItem('List'))[0].completed).toBeFalsy();
+    // another test
     const secondEvent = true;
     editCheckBox(id, secondEvent);
-    expect(JSON.parse(localStorage.getItem('List'))[0].completed).toBeTruthy;
+    expect(JSON.parse(localStorage.getItem('List'))[0].completed).toBeTruthy();
   });
-    // test the clear all funtion
-    test('check clear all completed function', ()=>{
-      const tasks = [{ description: 'text', completed: true, index: 1 },
-        { description: 'two', completed: false, index: 2 },
-        { description: 'three', completed: false, index: 3 },];
-        
-        localStorage.setItem('List', JSON.stringify(tasks)); 
-        let items = deleteCompleted();
-        // localStorageTasks(items);
-        // renderList(items)
-        expect(JSON.parse(localStorage.getItem('List'))).toHaveLength(2);
-     });
-  
-   //test the edit task function
-   test('check the function for editing the task description', () => {
-    const task = [{ description: 'text', completed: true, index: 1 }]
-    localStorage.setItem('List', JSON.stringify(task)); 
-    const value = "not text";
-    const id = 1 ;
+  // test the clear all funtion
+
+  test('check clear all completed function', () => {
+    const tasks = [{ description: 'text', completed: true, index: 1 },
+      { description: 'two', completed: false, index: 2 },
+      { description: 'three', completed: false, index: 3 }];
+
+    localStorage.setItem('List', JSON.stringify(tasks));
+    deleteCompleted();
+    expect(JSON.parse(localStorage.getItem('List'))).toHaveLength(2);
+
+    // second test
+    const secondTasks = [{ description: 'text', completed: false, index: 1 },
+      { description: 'two', completed: false, index: 2 },
+      { description: 'three', completed: false, index: 3 }];
+
+    localStorage.setItem('List', JSON.stringify(secondTasks));
+    deleteCompleted();
+    expect(JSON.parse(localStorage.getItem('List'))).toHaveLength(3);
+  });
+
+  // test the edit task function
+  test('check the function for editing the task description', () => {
+    const task = [{ description: 'text', completed: true, index: 1 }];
+    localStorage.setItem('List', JSON.stringify(task));
+    const value = 'not text';
+    const id = 1;
     editElement(id, value);
     expect(JSON.parse(localStorage.getItem('List'))[0].description).toBe('not text');
 
     // another test
-    const secondValue = "say my name";
-    editElement(id , secondValue);
+    const secondValue = 'say my name';
+    editElement(id, secondValue);
     expect(JSON.parse(localStorage.getItem('List'))[0].description).toBe('say my name');
-   });
-
-
-
-
-
-
-
-
+  });
 });

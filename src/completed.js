@@ -5,6 +5,7 @@ import {
 let List = JSON.parse(localStorage.getItem('List')) || [];
 
 const editCheckBox = (ID, event) => {
+  List = JSON.parse(localStorage.getItem('List'));
   List.forEach((element) => {
     if (element.index === ID) {
       element.completed = event;
@@ -14,18 +15,18 @@ const editCheckBox = (ID, event) => {
 };
 
 const deleteCompleted = () => {
+  List = JSON.parse(localStorage.getItem('List'));
   List = List.filter((element) => element.completed === false);
-  const ListSection = document.querySelector('.list-elements');
 
   List.forEach((element, index) => {
     element.index = index + 1;
   });
-  localStorageTasks(List);
 
+  localStorage.setItem('List', JSON.stringify(List));
+
+  const ListSection = document.querySelector('.list-elements');
   ListSection.innerHTML = '';
   renderList(List);
-
-  return List;
 };
 
 export {
