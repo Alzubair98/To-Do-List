@@ -91,5 +91,6 @@ const editElement = (ID, value) => {
 };
 
 export {
-  localStorageGet, addElement, deleteElement, editElement, localStorageTasks, renderList , deletetask,
+  localStorageGet, addElement, deleteElement, editElement,
+  localStorageTasks, renderList, deletetask,
 };
