@@ -1,8 +1,7 @@
 const List = JSON.parse(localStorage.getItem('List')) || [];
 
-const ListSection = document.querySelector('.list-elements');
-
 const createElement = (element) => {
+  const ListSection = document.querySelector('.list-elements');
   const elementDiv = document.createElement('div');
   const checkBox = document.createElement('input');
   const task = document.createElement('input');
@@ -22,12 +21,12 @@ const createElement = (element) => {
   task.classList.add('task-layout');
 
   elementDiv.setAttribute('div_id', element.index);
-  elementDiv.append(checkBox, task, deleteButton);
 
+  elementDiv.append(checkBox, task, deleteButton);
   ListSection.appendChild(elementDiv);
 };
 
-const addList = (List) => {
+const renderList = (List) => {
   List.forEach((element) => {
     createElement(element);
   });
@@ -41,7 +40,7 @@ const localStorageGet = () => {
   const theList = window.localStorage.getItem('List');
 
   if (theList !== null) {
-    addList(JSON.parse(theList));
+    renderList(JSON.parse(theList));
   }
 
   return theList;
@@ -74,6 +73,10 @@ const deleteElement = (ID) => {
   return theList;
 };
 
+const deletetask = (item) => {
+  item.parentElement.remove();
+};
+
 // edit elements
 
 const editElement = (ID, value) => {
@@ -88,5 +91,6 @@ const editElement = (ID, value) => {
 };
 
 export {
-  localStorageGet, addElement, deleteElement, editElement, localStorageTasks, addList,
+  localStorageGet, addElement, deleteElement, editElement,
+  localStorageTasks, renderList, deletetask,
 };
