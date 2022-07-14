@@ -51,6 +51,17 @@ describe('Add, Remove Element Test', () => {
     expect(JSON.parse(localStorage.getItem('List'))[0].completed).toBeTruthy;
   });
     // test the clear all funtion
+    test('check clear all completed function', ()=>{
+      const tasks = [{ description: 'text', completed: true, index: 1 },
+        { description: 'two', completed: false, index: 2 },
+        { description: 'three', completed: false, index: 3 },];
+        
+        localStorage.setItem('List', JSON.stringify(tasks)); 
+        let items = deleteCompleted();
+        // localStorageTasks(items);
+        // renderList(items)
+        expect(JSON.parse(localStorage.getItem('List'))).toHaveLength(2);
+     });
   
    //test the edit task function
    test('check the function for editing the task description', () => {
